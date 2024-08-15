@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lista de Productos</h1>
+        <button class="cartButton">
+            <img src="ruta/a/tu/imagen.png" alt="Carrito" />
+        </button>
+
+    </header>
+    <main>
+        <div class="product-container" id="productosList">
+        {{#each productos}}
+            <div class="product-card" id="product-{{this.code}}">
+                <h2>{{this.title}}</h2>
+                <p>{{this.description}}</p>
+                <p>Código: {{this.code}}</p>
+                <p>Precio: {{this.price}}</p>
+                <p>Stock: {{this.stock}}</p>
+                <p>Categoría: {{this.category}}</p>
+                <button onclick="confirmarEliminacion('{{this.code}}')">Eliminar</button>
+            </div>
+        {{/each}}
+    </div>
+
+    <h2 class="textForm">Formulario para cargar productos</h2>
+    <form id="productoForm">
+        <input type="text" name="title" placeholder="Título" required>
+        <input type="text" name="description" placeholder="Descripción" required>
+        <input type="text" name="code" placeholder="Código" required>
+        <input type="text" name="price" placeholder="Precio" required>
+        <input type="number" name="stock" placeholder="Stock" required>
+        <input type="text" name="category" placeholder="Categoría" required>
+        <input type="text" name="thumbnails" placeholder="Miniaturas">
+        <button type="submit">Agregar Producto</button>
+    </form>
+    </main>
+    <footer>
+    </footer>
+    {{!-- <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const socket = io();
+
+            const productosList = document.getElementById('productosList');
+            const productoForm = document.getElementById('productoForm');
+
+           {{!-- Función para agregar un producto al DOM --}}
+            const agregarProducto = (producto) => {
+                const productoItem = document.createElement('div');
+                productoItem.classList.add('product-card');
+                productoItem.id = `product-${producto.code}`;
+                productoItem.innerHTML = `
+                    <h2>${producto.title}</h2>
+                    <p>${producto.description}</p>
+                    <p>Código: ${producto.code}</p>
+                    <p>Precio: ${producto.price}</p>
+                    <p>Stock: ${producto.stock}</p>
+                    <p>Categoría: ${producto.category}</p>
+                    <p>Miniaturas: ${producto.thumbnails}</p>
+                    <button onclick="confirmarEliminacion('${producto.code}')">Eliminar</button>
+                `;
+                productosList.appendChild(productoItem);
+            };
+
+             {{!-- Escuchar eventos de actualización de productos --}}
+            socket.on('actualizarProductos', (productos) => {
+                productosList.innerHTML = ''; // Limpiar la lista existente
+                productos.forEach(agregarProducto);
+            });
+
+             {{!-- Enviar nuevo producto al servidor --}}
+            productoForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const newProduct = {
+                    title: productoForm.title.value,
+                    description: productoForm.description.value,
+                    code: productoForm.code.value,
+                    price: productoForm.price.value,
+                    stock: productoForm.stock.value
+                    category: productoForm.category.value,
+                    thumbnails: productoForm.thumbnails.value,
+                };
+                socket.emit('nuevoProducto', newProduct);
+                productoForm.reset();
+            });
+
+           {{!-- Función para confirmar eliminación de productos --}}
+            window.confirmarEliminacion = (productoId) => {
+                if (confirm("¿Desea eliminar este producto?")) {
+                    socket.emit('eliminarProducto', productoId);
+                }
+            };
+        });
+    </script> --}}
+</body>
+</html>

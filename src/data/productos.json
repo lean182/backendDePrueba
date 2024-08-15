@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "Cocina Acme 7638",
+    "description": "Cocina más rapido que un corre caminos",
+    "code": "CoAc123",
+    "price": "$900.000",
+    "status": "true",
+    "stock": "6",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  },
+  {
+    "id": 2,
+    "title": "Heladera Acme 3665",
+    "description": "Te deja más frio que caer a un precipicio",
+    "code": "HeAc456",
+    "price": "$1.200.000",
+    "status": "true",
+    "stock": "5",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  },
+  {
+    "id": 3,
+    "title": "Microondas Acme 7899",
+    "description": "Precaución!! Altamente radioactivo",
+    "code": "MiAc789",
+    "price": "$2.000.000",
+    "status": "true",
+    "stock": "3",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  },
+  {
+    "id": 4,
+    "title": "Batidora Acme 2586",
+    "description": "Ideal para hacer tortas explosivas",
+    "code": "BiAc147",
+    "price": "$750.000",
+    "status": "true",
+    "stock": "15",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  },
+  {
+    "id": 6,
+    "title": "Producto sin stock Acme 7638",
+    "description": "Cocina más rapido que un corre caminos",
+    "code": "SsEa123",
+    "price": "$900.000",
+    "status": "false",
+    "stock": "0",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  },
+  {
+    "id": 7,
+    "title": "Producto para borrar Acme 7638",
+    "description": "Cocina más rapido que un corre caminos",
+    "code": "KsE123",
+    "price": "$1.180.000",
+    "status": "true",
+    "stock": "6",
+    "category": "Electrodoméstico",
+    "thumbnails": "null"
+  }
+]

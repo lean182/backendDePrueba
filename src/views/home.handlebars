@@ -1,0 +1,30 @@
+<html lang='en'>
+   <head>
+      <meta charset='UTF-8' />
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <title>Lista de Productos</title>
+      <link rel='stylesheet' href='/css/styles.css' />
+   </head>
+   <body>
+      <header>
+         <h1 class=''>Lista de Productos</h1>
+         <button class="cartButton"><a href="/data/carritos.json"></a></button>
+      </header>
+      <main>
+         <div class='product-container'>
+            {{#each productos}}
+               <div class='product-card'>
+                  <h2>{{this.title}}</h2>
+                  <p>{{this.description}}</p>
+                  <p>Precio: {{this.price}}</p>
+                  <p>Categoría: {{this.category}}</p>
+                  <p>Stock: {{this.stock}}</p>
+               </div>
+            {{/each}}
+         </div>
+      </main>
+      <footer>
+      </footer>
+      <script src='/js/main.js'></script>
+   </body>
+</html>
